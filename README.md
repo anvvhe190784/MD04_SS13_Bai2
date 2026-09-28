@@ -12,3 +12,12 @@ Hệ thống bao gồm các dịch vụ:
 - Băm mật khẩu an toàn với `BCryptPasswordEncoder`.
 - Cấu hình Spring Security tắt CSRF và cho phép truy cập công khai endpoint đăng ký.
 - API: `POST /api/auth/register` tiếp nhận thông tin người dùng và lưu vào database PostgreSQL `identity_db`.
+
+---
+
+## [Bài tập 2] Xây dựng bộ công cụ cấp phát JSON Web Token (JWT)
+- Tích hợp thư viện `io.jsonwebtoken:jjwt-api:0.11.5`.
+- Cấu hình secret 256-bit và expiration 3600000ms trong `application.yml`.
+- `JwtUtil`: Sinh token với Claims `sub` (username), custom claim `role`, ký HMAC-SHA256.
+- API: `GET /api/auth/test-token?username={name}` tìm người dùng trong DB và cấp token.
+- Kiểm tra tính hợp lệ của Payload trên [jwt.io](https://jwt.io).
